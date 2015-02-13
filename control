@@ -1,0 +1,25 @@
+Source: cryptodev-linux
+Priority: optional
+Section: kernel
+Maintainer: multiSnow <infinity.blick.winkel@gmail.com>
+Homepage: http://cryptodev-linux.org/
+
+Package: cryptodev-linux-dkms
+Architecture: any
+Section: kernel
+Depends: ${misc:Depends},
+Suggests: cryptodev-linux-dev (= ${binary:Version}),
+Description: Cryptodev-linux module (DKMS)
+ Cryptodev-linux is a device that allows access to Linux kernel cryptographic drivers; thus allowing of userspace applications to take advantage of hardware accelerators. Cryptodev-linux is implemented as a standalone module that requires no dependencies other than a stock linux kernel. Its API is compatible with OpenBSD's cryptodev userspace API (/dev/crypto).
+ .
+ This package provides the source code for the cryptodev-linux kernel module. Kernel source or headers are required to compile this module.
+
+Package: cryptodev-linux-dev
+Architecture: any
+Section: libdevel
+Depends: ${misc:Depends},
+Recommends: cryptodev-linux-dkms (= ${binary:Version}),
+Description: Cryptodev-linux module (development files)
+ Cryptodev-linux is a device that allows access to Linux kernel cryptographic drivers; thus allowing of userspace applications to take advantage of hardware accelerators. Cryptodev-linux is implemented as a standalone module that requires no dependencies other than a stock linux kernel. Its API is compatible with OpenBSD's cryptodev userspace API (/dev/crypto).
+ .
+ This package contains the cryptodev-linux kernel module development files.
