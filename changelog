@@ -1,6 +1,65 @@
+cryptodev-linux (1.9-1) unstable; urgency=low
+
+   * fix benchmarks linking
+   * fix Makefile to allow parallel make with -j option
+   * use Linux kernel conventions for Makefile variables
+   * for consistency, use $(...) instead of ${...} in makefiles
+   * fix clean-up on error path for crypto_create_session
+   * remove code duplication in cryptodev_hash_init
+   * add separate target for building tests
+   * fix destination for staged installs
+   * add install target for tests
+   * fix comment typo
+   * avoid calls to kmalloc on hotpaths
+   * avoid redundant checks in cryptodev_hash_deinit
+   * Fix test compile time warnings
+   * Support skcipher in addition to ablkcipher API
+   * Adjust to recent user page API changes
+   * Adjust to another change in the user page API
+   * fix issues with install target
+   * setting KERNEL_DIR is not necessary to build tests
+   * fix ignored SIGALRM signals on some platforms
+   * fix incorrect return code in case of error from openssl_cioccrypt
+   * remove not used local variables
+   * fix warnings of "implicit declaration of function" in async_speed
+   * rename header file to clarify purpose
+   * use buf_align macro to reduce code duplication
+   * avoid implicit conversion between signed and unsigned char
+   * do more strict code checking to avoid maintenance issues
+   * adjust to API changes in kernel >=4.10
+   * zc: Use the power of #elif
+   * Fix ablkcipher algorithms usage in v4.8+ kernels
+
+ -- Daniel Rheinbay <danielrheinbay@gmail.com>  Sun, 23 Apr 2017 09:56:23 +0200
+
+
+cryptodev-linux (1.8-1) unstable; urgency=low
+
+   * Fixed compilation against linux-3.19.
+   * Tests: cixed arg passing to CC in implicit rule.
+   * Fix tag printing in cipher-gcm test by Fridolin Pokorny.
+   * Fix compilation against linux 4.3 by Gustavo Zacarias.
+
+ -- Daniel Rheinbay <danielrheinbay@gmail.com>  Sun, 29 Nov 2015 10:17:12 +0100
+
+
 cryptodev-linux (1.7-1) unstable; urgency=low
 
-   *Initial release.
+   * Added support for composite AEAD keys by Cristian Stoica.
+   * Added support for sysctl to modify verbosity by Nikolaos Tsakalakis.
+   * Several bugfixes by Cristian Stoica.
+   * When a driver requires aligned data but unaligned are provided,
+     then zero copy is disabled to prevent driver failing to encrypt.
+   * Compatibility to kernel version 3.13 and above by Cosmin Paraschiv.
+   * Various checkpatch.pl fixes.
+   * Introduced ddebug, dinfo, dwarning and derr macros wrapping dprintk.
+   * Improved support for cross-compiling.
+   * Hmac_comp test has become more picky when checking results.
+   * Fixed allocated resource cleanup in error case, patch by Cristian Stoica.
+   * Buffer size allocation fixup for AEAD modes by Nikos Mavrogiannopoulos.
+   * Support for composite AEAD keys added by Cristian Stoica.
+   * Fixed tag and dsl_len calculation for AEAD ciphers, patch by Cristian Stoica.
+   * Documentation updates by Nikos Mavrogiannopoulos.
 
  -- multiSnow <infinity.blick.winkel@gmail.com>  Sat, 14 Feb 2015 00:26:49 +0800
 
