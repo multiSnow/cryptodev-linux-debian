@@ -1,3 +1,14 @@
+cryptodev-linux (1.10-1) unstable; urgency=low
+
+   * Fix compilation issues against Linux kernel >= 4.11 and gcc >= 5
+   * Add CIOCCPHASH ioctl
+   * Fix tests build for OpenSSL 1.1
+   * Convert to new AEAD kernel crypto interface
+   * A variety of bug fixes
+
+ -- Daniel Rheinbay <danielrheinbay@gmail.com>  Fri, 21 Dec 2018 09:56:23 +0200
+
+
 cryptodev-linux (1.9-1) unstable; urgency=low
 
    * fix benchmarks linking
