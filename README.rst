@@ -2,16 +2,21 @@
 debian dictionary to create cryptodev-linux dkms package
 ========================================================
 
+Packages:
+
+- cryptodev-linux-dkms: dkms of cryptodev-linux
+- cryptodev-linux-dev: development files for other program
+
 Require:
 
-- kernel headers
 - dkms
 - debhelper
 
 Build:
 
-- download source from http://download.gna.org/cryptodev-linux/cryptodev-linux-1.7.tar.gz
-- tar xf cryptodev-linux-1.7.tar.gz && cd cryptodev-linux-1.7
-- git clone https://github.com/multiSnow/cryptodev-linux-debian.git debian
-- dpkg-buildpackage -rfakeroot -us -uc -tc -b -j4
-- install the cryptodev-linux-dkms package ( and cryptodev-linux-dev for build other program with cryptodev-linux )
+.. code:: sh
+
+ git clone https://github.com/multiSnow/cryptodev-linux-debian.git
+ cd cryptodev-linux-debian
+ python3 news2changelog.py
+ dpkg-buildpackage -rfakeroot -us -uc -tc -b
