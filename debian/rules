@@ -2,15 +2,20 @@
 
 #export DH_VERBOSE=1
 
+VERSION=$(shell sed -nr 's%^VERSION = ([.0-9]+)$%\1%p' cryptodev-linux/Makefile)
+TARGET=debian/tmp/usr/src/cryptodev-$(VERSION)
+
 %:
 	dh $@ --with dkms
 
 override_dh_install:
 	make version.h -C cryptodev-linux
+	mkdir -p $(TARGET)
+	install -m644 cryptodev-linux/Makefile cryptodev-linux/*.c cryptodev-linux/*.h $(TARGET)
 	dh_install
 
 override_dh_dkms:
-	dh_dkms -V $(shell sed -nr 's%^VERSION = ([.0-9]+)$%\1%p' cryptodev-linux/Makefile)
+	dh_dkms -V $(TARGET)
 
 # do nothing
 override_dh_auto_configure override_dh_auto_build override_dh_auto_test override_dh_auto_install override_dh_auto_clean:
