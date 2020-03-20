@@ -11,7 +11,7 @@ TARGET=debian/tmp/usr/src/cryptodev-$(VERSION)
 override_dh_install:
 	make version.h -C cryptodev-linux
 	mkdir -p $(TARGET)
-	install -m644 cryptodev-linux/Makefile cryptodev-linux/*.c cryptodev-linux/*.h $(TARGET)
+	cp -a cryptodev-linux/crypto cryptodev-linux/Makefile cryptodev-linux/*.c cryptodev-linux/*.h $(TARGET)
 	dh_install
 
 override_dh_dkms:
