@@ -1,6 +1,7 @@
 Source: cryptodev-linux
 Priority: optional
 Section: kernel
+Maintainer: Maintaincer <user@email.address>
 Homepage: https://github.com/cryptodev-linux/cryptodev-linux
 
 Package: cryptodev-linux-dkms
