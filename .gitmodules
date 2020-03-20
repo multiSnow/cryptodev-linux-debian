@@ -1,0 +1,3 @@
+[submodule "cryptodev-linux"]
+	path = cryptodev-linux
+	url = https://github.com/cryptodev-linux/cryptodev-linux.git

@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE=1
+
+%:
+	dh $@ --with dkms
+
+override_dh_install:
+	make version.h -C cryptodev-linux
+	dh_install
+
+override_dh_dkms:
+	dh_dkms -V $(shell sed -nr 's%^VERSION = ([.0-9]+)$%\1%p' cryptodev-linux/Makefile)
+
+# do nothing
+override_dh_auto_configure override_dh_auto_build override_dh_auto_test override_dh_auto_install override_dh_auto_clean:

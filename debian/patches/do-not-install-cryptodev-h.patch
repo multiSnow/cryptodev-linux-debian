@@ -1,0 +1,10 @@
+--- a/cryptodev-linux/Makefile
++++ b/cryptodev-linux/Makefile
+@@ -33,7 +33,6 @@ install: modules_install
+ 
+ modules_install:
+ 	$(MAKE) $(KERNEL_MAKE_OPTS) modules_install
+-	install -m 644 -D crypto/cryptodev.h $(DESTDIR)/$(includedir)/crypto/cryptodev.h
+ 
+ clean:
+ 	$(MAKE) $(KERNEL_MAKE_OPTS) clean
