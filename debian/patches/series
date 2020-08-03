@@ -1,2 +1,3 @@
 do-not-install-cryptodev-h.patch
 enable-async.patch
+no-tests-in-clean.patch
