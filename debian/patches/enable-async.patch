@@ -1,11 +1,9 @@
 --- a/cryptodev-linux/Makefile
 +++ b/cryptodev-linux/Makefile
-@@ -3,7 +3,7 @@
- # disabled by default. To re-enable it uncomment the
+@@ -4,5 +4,5 @@
  # corresponding CFLAG.
  #
 -CRYPTODEV_CFLAGS ?= #-DENABLE_ASYNC
 +CRYPTODEV_CFLAGS ?= -DENABLE_ASYNC
- KBUILD_CFLAGS += -I$(src) $(CRYPTODEV_CFLAGS)
+ KBUILD_CFLAGS += -I$(src) $(CRYPTODEV_CFLAGS) -Wvla
  KERNEL_DIR ?= /lib/modules/$(shell uname -r)/build
- VERSION = 1.10
