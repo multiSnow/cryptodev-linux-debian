@@ -2,7 +2,7 @@ from datetime import date
 from re import compile as recompile
 
 regex=recompile(r'^Version (?P<major>[.0-9]+)[.](?P<minor>[.0-9]+) '
-                r'\(released (?P<data>[0-9]{4}-[0-9]{2}-[0-9]{2})\)$')
+                r'\(released (?P<year>[0-9]+)-(?P<month>[0-9]+)-(?P<day>[0-9]+)\)$')
 
 def iter_changes(lines):
     version=None
@@ -11,7 +11,8 @@ def iter_changes(lines):
         match=regex.match(line)
         if match:
             version=int(match['major']),int(match['minor'])
-            changes[version]={'date':date.fromisoformat(match['data']),
+            year,month,day=int(match['year']),int(match['month']),int(match['day'])
+            changes[version]={'date':date.fromisoformat(f'{year:04}-{month:02}-{day:02}'),
                               'logs':[]}
         elif version:
             changes[version]['logs'].append(f'   {line}')
